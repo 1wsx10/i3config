@@ -38,16 +38,9 @@ bindsym XF86AudioMute exec /home/angel/.i3/volume.sh mute && killall -USR1 i3sta
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-#font pango:Source sans Pro, IconicIcons 8
-#font -*-terminal-medium-*-*-*-14-*-*-*-c-*-iso8859-*
-#font pango: Terminus 11px
-#font pango: terminus-font-ttf 11px
-#font -*-terminus-*-*-*-*-*-160-*-*-*-*-*-*
-font -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*
-#font -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-*
+font pango:DejaVu Sans Mono 8
 # Before i3 v4.8, we used to recommend this one as the default:
-#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
@@ -57,10 +50,7 @@ font -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec xterm
-bindsym $mod+Return exec xterm -fn -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-* -fg gray -bg black
-#bindsym $mod+Return exec xterm -fn -misc-fixed-bold-r-normal--15------iso8859-15 -fg gray -bg black
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -178,7 +168,6 @@ mode "resize" {
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
-	bindsym $mod+r mode "default"
         bindsym Control+bracketleft mode "default"
 }
 

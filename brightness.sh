@@ -1,5 +1,5 @@
 #!/bin/bash
-#brightness=4
+#brightness=5
 
 C=$(sed -n 's/#brightness=//;2p' $0)
 N=$C

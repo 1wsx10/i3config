@@ -1,5 +1,5 @@
 #!/bin/bash
-#volume=3
+#volume=0
 
 C=$(sed -n 's/#volume=//;2p' $0)
 N=$C
