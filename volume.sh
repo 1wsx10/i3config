@@ -1,5 +1,5 @@
 #!/bin/bash
-#volume=3
+#volume=5
 
 C=$(sed -n 's/#volume=//;2p' $0)
 N=$C
@@ -14,7 +14,7 @@ elif [[ $1 == "down" ]]; then
 	N=$(expr $C - 1)
 
 elif [[ $1 == "mute" ]]; then
-	amixer -q set Master toggle
+	pamixer -t
 fi
 
 
@@ -27,5 +27,5 @@ fi
 
 sed -i "2s/\(#volume=\).*/\1$N/" $0
 C=$(sed -n 's/#volume=//;2p' $0)
-amixer -q set Master $(expr $C \* 10)%
+pamixer --set-volume $(expr $C \* 10)
 
