@@ -9,6 +9,9 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# no wrapping pls
+focus_wrapping no
+
 #set $mod Mod4
 set $mod Mod1
 
@@ -59,14 +62,16 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec xterm
-bindsym $mod+Return exec xterm -fn -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-* -fg gray -bg black
-#bindsym $mod+Return exec xterm -fn -misc-fixed-bold-r-normal--15------iso8859-15 -fg gray -bg black
+bindsym $mod+Return exec xterm 
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+semicolon exec dmenu_run
+#bindsym $mod+semicolon exec dmenu_run
+bindsym $mod+semicolon exec dmenu_run -fn "-xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*" -nf gray -nb black
+#bindsym $mod+semicolon exec dmenu_run -fn "-xos4-terminus-medium-r-*-*-14-*"
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -89,6 +94,8 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+#TODO: move 5
+#
 
 # alternatively, you can use the cursor keys:
 #bindsym $mod+Shift+Left move left
@@ -107,7 +114,7 @@ bindsym $mod+f fullscreen
 bindsym XF86Display fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
+bindsym $mod+w layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -121,20 +128,27 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+d focus child
+
+#make new windows have a minimal border
+#new_window pixel 3
+
+bindsym XF86Launch1 [workspace=^Arch$] kill; workspace Arch; exec xterm -fn -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-* -fg gray -bg black -hold neofetch
+
+
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-bindsym $mod+grave workspace vegemite
+bindsym $mod+1 workspace 1; [workspace=^Arch$] kill
+bindsym $mod+2 workspace 2; [workspace=^Arch$] kill
+bindsym $mod+3 workspace 3; [workspace=^Arch$] kill
+bindsym $mod+4 workspace 4; [workspace=^Arch$] kill
+bindsym $mod+5 workspace 5; [workspace=^Arch$] kill
+bindsym $mod+6 workspace 6; [workspace=^Arch$] kill
+bindsym $mod+7 workspace 7; [workspace=^Arch$] kill
+bindsym $mod+8 workspace 8; [workspace=^Arch$] kill
+bindsym $mod+9 workspace 9; [workspace=^Arch$] kill
+bindsym $mod+0 workspace 10; [workspace=^Arch$] kill
+bindsym $mod+grave workspace vegemite; [workspace=^Arch$] kill
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
