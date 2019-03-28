@@ -62,7 +62,8 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec xterm
-bindsym $mod+Return exec xterm 
+#bindsym $mod+Return exec xterm 
+bindsym $mod+Return exec st -f -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*
 
 # kill focused window
 bindsym $mod+Shift+q kill
