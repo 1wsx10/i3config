@@ -1,21 +1,21 @@
-#!/bin/bash
+#!/bin/sh
 #brightness=4
 
 C=$(sed -n 's/#brightness=//;2p' "$0")
 N=$C
 
-if [[ $1 == "up" ]]; then
+if [ "$1" = "up" ]; then
 	echo "up"
 	N=$(dc -e "$C 1 +p")
 
-elif [[ $1 == "down" ]]; then
+elif [ "$1" = "down" ]; then
 	echo "down"
 	N=$(dc -e "$C 1 -p")
 fi
 
-if [[ $N -gt 10 ]]; then
+if [ "$N" -gt 10 ]; then
 	N=10
-elif [[ $N -lt 0 ]]; then
+elif [ "$N" -lt 0 ]; then
 	N=0
 fi
 
