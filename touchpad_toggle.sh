@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 #xinput enable
 
-if [[ $1 != "set" ]]; then
+if [ "$1" != "set" ]; then
 	sed -i '2s/#xinput enable/#xinput TEMP/' "$0"
 	sed -i '2s/#xinput disable/#xinput enable/' "$0"
 	sed -i '2s/#xinput TEMP/#xinput disable/' "$0"
