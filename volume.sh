@@ -1,17 +1,17 @@
 #!/bin/bash
 #volume=5
 
-C=$(sed -n 's/#volume=//;2p' $0)
+C=$(sed -n 's/#volume=//;2p' "$0")
 N=$C
 
 # raise or lower value
 if [[ $1 == "up" ]]; then
 	echo "up"
-	N=$(expr $C + 1)
+	N=$(dc -e "$C 1+p")
 
 elif [[ $1 == "down" ]]; then
 	echo "down"
-	N=$(expr $C - 1)
+	N=$(dc -e "$C 1-p")
 
 elif [[ $1 == "mute" ]]; then
 	pamixer -t
@@ -25,7 +25,7 @@ elif [[ $N -lt 0 ]]; then
 	N=0
 fi
 
-sed -i "2s/\(#volume=\).*/\1$N/" $0
-C=$(sed -n 's/#volume=//;2p' $0)
-pamixer --set-volume $(expr $C \* 10)
+sed -i "2s/\(#volume=\).*/\1$N/" "$0"
+C=$(sed -n 's/#volume=//;2p' "$0")
+pamixer --set-volume "$(dc -e "$C 10*p")"
 
